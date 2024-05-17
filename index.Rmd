@@ -5,32 +5,42 @@ output: html_document
 
 ## Project title
 
-Give your project a concise, interesting title that summarizes the entirety of your project
+Project Studious Student Habits
 
 ### Authors
 
-Names of your team members
+Thi Trang, Vanessa Kanam, Audrey Phan
 
 ### Date
 
-Winter 2022
+May 17th, 2024
 
 ### Abstract
 
-No more than three sentences that summarize your project. Focus on the very most important aspects. For example: (1) "Our main question is .... This question is important because .... To address the question, we will ...." (2) "We are concerned with ..., because .... To address this concern, we plan to ...." (3) "Consider that .... This is important because .... Accordingly, we plan to ...."
+Our main question is how factors like gender, ethnicity, parental education, and whether they have reduced lunch influences student test scores and study habits. This question is important because understanding these impacts can guide more effective educational interventions. To address this question, we will analyze a dataset of 1,000 students from Kaggle, using statistical methods and machine learning models, as
+well as create charts to analyze data from our dataset.
 
 ### Keywords
 
-3-5 keywords that summarize your project.
-(e.g., "Keywords: human physiology; bicycle exercise; Gen Z; times-series data")
+Student study performance, socio-demographic factors, test scores, race and ethnicity.
 
 ### Introduction  
 
-Briefly introduce your project.  Include 3-5 research questions. What motivates the questions? Why are they important? (at least 200 words)
+Academic performance serves as a way to help students develop life skills, advance career choices, and to build confidence. It is important as we have a learning level to meet but to do so we have different factors on meeting academic expectations. There are always more room to make more strategies to improve academic performance and reduce academic risks. Moreover, there has been studies how academic performance can be linked to physical fitness, with understanding the correlation between the two. Understanding the factors that influence academic performance is essential for educational research. Our project explores and highlights the relationship between various subjects including gender, sex, ethnicity, race, family background education, as well as if eating lunch with those who have standard or free and reduced lunch can be affected by student’s performance in school. It leads to questions such as does parental level education affect their student to learn better? Which race or ethnicity has lower and higher test scores? Does gender and sex play a role on who performs better? All these subjects will reflect the data in groups on how students perform in math, writing, and reading. Analyzing these student performance factors can help identify and improve education programs as well to have a greater impact on their success.
 
 ### Related Work  
 
-Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+The topic we chose was Student Study Performances. Related works we found with this topic is from Watermark Insights, called "You Say Tomato, I say Tomato: Are Student Performance and Student Learning Outcomes the Same Thing?" which explains the difference between student performances and learning outcomes. Performance outcomes are results an institution wants to see from students, while student learning outcomes are things like being able to communicate well, applying your learning to experiences, etc.. The second is a research article from Frontiers called "Student performance in online learning higher education: A preliminary research" which analyzes the impact of student performance in online learning experiences. This study includes different sections such as e-learning technology, student satisfaction, and student performance impact parts, which go in depth. Lastly, the last relevant work chosen was from the Wisconsin Department of Public Institution, which shows different levels of student performances. They created a standard setting which is linked on the website in order to gauge the academic standards. They separate performance levels into four categories: advanced, proficient, basic, and below basic. We chose this article especially because it is government officiated which shows the way some states have as their standard for gauging performance levels in students, which could potentially be helpful in our study later on when we look at student study performances.
+
+Sources:
+
+1. Prabowo, Hartiwi, et al. “Student Performance in Online Learning Higher Education: A Preliminary Research.” Frontiers, Frontiers, 22 Sept. 2022, www.frontiersin.org/articles/10.3389/feduc.2022.916721/full.
+
+2. Watermark Insights. “You Say Tomato, I Say Tomato: Are Student Performance and     Student Learning Outcomes the Same Thing?” Watermark Insights, 26 Feb. 2024, www.watermarkinsights.com/resources/blog/you-say-tomato-i-say-tomato-are-student-performance-and-student-learning-outcomes-the-same-thing.
+
+3. Wisconsin Department of Public Institution. “Student Performance Levels.” Wisconsin Department of Public Institution, dpi.wi.gov/sites/default/files/imce/assessment/pdf/Student_Performance_Levels.pdf. Accessed 2 May 2024.
+
+
 
 ### The Dataset
 
