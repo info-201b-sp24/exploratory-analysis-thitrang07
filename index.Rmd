@@ -4,13 +4,9 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(knitr)
 library(tidyverse)
 library(dplyr)
-library(readxl)
 ```
-
 
 ## Project title
 
@@ -68,14 +64,11 @@ Student study performances is a broad topic, because there are many different wa
 ### Summary Information
 
 Our analysis revealed that the students with lower test scores in math, english, and writing, were the gender 
-'r gender_lowest_scores', had parents with 
-'r parentlvl_lowest_scores' level of education, and were
-'r race_lowest_scores' race. 
+`r gender_lowest_scores`, had parents with 
+`r parentlvl_lowest_scores` level of education, and were
+`r race_lowest_scores` race. 
 
-On the opposite side, Our analysis revealed that the students with higher test scores in math, english, and writing, were the gender 
-'r gender_highest_scores', had parents with 
-'r parentlvl_highest_scores' level of education, and were
-'r race_highest_scores' race. 
+On the opposite side, Our analysis revealed that the students with higher test scores in math, english, and writing, were the gender `r gender_highest_scores`, had parents with `r parentlvl_highest_scores` level of education, and were `r race_highest_scores` race. 
 
 ### Table
 
