@@ -5,7 +5,7 @@ output: html_document
 
 ## Project title
 
-Project Studious Student Habits
+Project Studious Student Performances
 
 ### Authors
 
@@ -40,29 +40,24 @@ Sources:
 
 3. Wisconsin Department of Public Institution. “Student Performance Levels.” Wisconsin Department of Public Institution, dpi.wi.gov/sites/default/files/imce/assessment/pdf/Student_Performance_Levels.pdf. Accessed 2 May 2024.
 
-
-
 ### The Dataset
 
-Where did you find the data? Please include a link to the data source  
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+This dataset comes from Kaggle, a website where data scientists share work on data to build machine learning models. The dataset was collected by Bhavik Jikadara, a Data Scientist known for his proficiency to use Machine Learning, Natural Language Processing, and Deep Learning. There are 1,000 observations and 8 features in this dataset, including gender, race/ethnicity, parental level of education, lunch, test preparation course, scores in math, reading, and writing. The purpose behind this data was likely to analyze and understand how different factors can affect student performances, which can aid in educational planning and tailor the teaching style more appropriately to accommodate the needs of students.
+
+When analyzing this data, it’s crucial to maintain ethical standards, especially when the data might involve information about students that are under the age of 18; ensuring the anonymity and privacy of the students’ data is essential to prevent any potential misuse. Additionally, it’s important to consider whether the dataset fairly represents different populations or if there’s any bias in the way the data was collected.
+
+There are several limitations to this dataset which include its cope being too narrow (only a 1000 observations) to generalize across different educational systems or cultural contexts. Thus, there is a higher risk of bias information being involved in the absence of some factors. Second, the data collection methods aren’t transparent, so it is unknown where and when the data was being collected. These aspects are critical to consider, ensuring that all conclusions are liable and relevant to use.
 
 ### Implications
 
-Assuming you answer your research questions, briefly describe the expected or possible implications for technologists, designers, and policymakers. (at least 150 words)
+There are many significant factors that can get in the way of academic performance. One of the research questions we plan to answer, does parental level education affect their student to learn better? Parent education is an important index of social economic status, as it can predict children’s educational, cognitive outcomes. There has been a relation between poverty and low social economic status which can lead to negative child outcomes such as low IQ, more social problems. Having a lower socioeconomic status can give people the disadvantage. Students who live in poverty often have fewer resources either in school, at home, etc. Those with parent education can be linked directly with the child developing academic success and achievement attitudes. In general, social learning is shaped by observation and learning experiences. If a child is exposed to parents who modeled achievement behavior will often guide their children that achievement is valued.
 
 ### Limitations & Challenges
-What challenges or limitations might you need to address with your project idea more broadly? Briefly discuss. (at least 150 words)
+
+Student study performances is a broad topic, because there are many different ways a student can show their performances, many types of students, and study methods, all which can affect the data set and how to interpret and analyze it. The data set we chose has a lot of factors they put down, some which can be noted as a correlation, such as parental level of education and whether the students have free/reduced lunch. A challenge relating to this could be finding relationships between the sections in this dataset without assuming they cause the other, because correlation does not equal causation. Another limitation could be that the related works we may find probably come from a variety of sources, some which could be biased or skewed, so it will be important in our study to use accurate sources. Another challenge we may run into is comparing data between, for example, an area with a more prestigous education system versus a less one, and we will have to rule out these outliers when completing our study.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
 
 ### Table
 
