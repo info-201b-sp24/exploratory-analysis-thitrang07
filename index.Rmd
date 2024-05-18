@@ -76,15 +76,12 @@ Include a table of aggregate information
 
 Describe why you included the table and what information it reveals
 
-### Chart 1
+### Chart 1: Average Writing, Math, and Reading Scores for Genders
 
-Include a chart
+``````{r chart11, echo=FALSE}
+source("Avg Scores by Gender.R")
+plot(chart1)
 
-Describe why you chose this chart and what information it reveals
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
 ```
 
 ### Chart 2
