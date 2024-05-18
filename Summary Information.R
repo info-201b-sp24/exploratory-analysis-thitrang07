@@ -1,10 +1,16 @@
 # Audrey Phan
 # Summary Information
 
-# Load Packages 
+# Install packages
+install.packages("readxl")
+install.packages("here")
 
+# Load Packages 
 library(tidyverse)
 library(dplyr)
+library(readxl)
+library(here)
+
 
 # Load data
 
@@ -53,5 +59,11 @@ race_lowest_scores <- student_study_performance %>%
   filter(reading_score == min(reading_score)) %>%
   filter(writing_score == min(writing_score)) %>%
   pull(race_ethnicity)
+
+# Calcualte the average scores
+summary_avg_math_score <- round(mean(student_study_performance$math_score, na.rm = TRUE), 2)
+summary_avg_reading_score <- round(mean(student_study_performance$reading_score, na.rm = TRUE), 2)
+summary_avg_writing_score <- round(mean(student_study_performance$writing_score, na.rm = TRUE), 2)
+
 
 
