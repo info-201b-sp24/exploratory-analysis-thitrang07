@@ -78,11 +78,12 @@ Describe why you included the table and what information it reveals
 
 ### Chart 1: Average Writing, Math, and Reading Scores for Genders
 
-``````{r chart11, echo=FALSE}
+```{r chart11, echo=FALSE}
 source("Avg Scores by Gender.R")
-plot(chart1)
+print(chart1)
 
 ```
+I chose this chart of the average writing, reading, and math scores of both genders side by side, which reveals that in reading and writing, female students had the higher average test scores, but for male students, their average math scores were the highest.
 
 ### Chart 2
 
