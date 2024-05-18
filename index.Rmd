@@ -14,7 +14,7 @@ Project Studious Student Performances
 
 ### Authors
 
-Thi Trang, Vanessa Kanam, Audrey Phan
+Thi Trang, Vanessa Kankam, Audrey Phan
 
 ### Date
 
@@ -87,9 +87,35 @@ I chose this chart of the average writing, reading, and math scores of both gend
 
 ### Chart 2
 
-Include a chart
+```{r}
+# Load the dataset
+student_study_performance <- read.csv("study_performance.csv")
 
-Describe why you chose this chart and what information it reveals
+
+# Creating a box plot for score distributions by lunch type
+# Focus on readability and effective use of color
+box_plot <- ggplot(student_study_performance, aes(x = lunch, y = math_score, fill = lunch)) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 8) +  # Highlight outliers in red
+  labs(
+    title = "Math Score Distribution by Lunch Type",
+    x = "Type of Lunch",
+    y = "Math Scores",
+    fill = "Lunch Type"
+  ) +
+  scale_fill_manual(values = c("standard" = "#3498db", "free/reduced" = "#e74c3c")) +  # Use manual colors for clarity
+  theme_minimal() +  # Minimalistic theme for clarity
+  theme(legend.position = "right",  # Ensure the legend does not run off the page
+        legend.title = element_text(face = "bold", size = 12),  # Enhance legend title readability
+        legend.text = element_text(size = 10))  # Set size for legend texts
+
+# Display the plot
+print(box_plot)
+
+```
+
+
+
+This shows the reflection of the type of lunch status students have and performance of math scores. Those who have standard lunch performed better in math than those who have free/reduced.
 
 ### Chart 3
 
