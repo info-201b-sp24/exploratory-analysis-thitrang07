@@ -8,7 +8,7 @@ library(tidyverse)
 library(dplyr)
 ```
 
-## Project title
+### Project title
 
 Project Studious Student Performances
 
@@ -73,8 +73,45 @@ On the opposite side, Our analysis revealed that the students with higher test s
 ### Table
 
 Include a table of aggregate information
+```{r}
+# Load packages
+library(dplyr)
+library(readxl)
+library(here)
 
-Describe why you included the table and what information it reveals
+# Load Data
+student_study_performance <- read.csv("study_performance.csv")
+
+# Order of parental level of education
+education_levels <- c("some high school", "high school", "some college", 
+                      "associate's degree", "bachelor's degree", "master's degree")
+
+# Create an aggregated table
+aggregated_table <- student_study_performance %>%
+  group_by(parental_level_of_education) %>%
+  summarise(
+    Count = n(),
+    Avg_Math_Score = round(mean(math_score, na.rm = TRUE), 2),
+    Avg_Reading_Score = round(mean(reading_score, na.rm = TRUE), 2),
+    Avg_Writing_Score = round(mean(writing_score, na.rm = TRUE), 2),
+    Max_Math_Score = max(math_score, na.rm = TRUE),
+    Min_Math_Score = min(math_score, na.rm = TRUE),
+    Max_Reading_Score = max(reading_score, na.rm = TRUE),
+    Min_Reading_Score = min(reading_score, na.rm = TRUE),
+    Max_Writing_Score = max(writing_score, na.rm = TRUE),
+    Min_Writing_Score = min(writing_score, na.rm = TRUE),
+    Prop_Test_Prep_Completed = round(mean(test_preparation_course == "completed", na.rm = TRUE), 2)
+  ) %>%
+  arrange(parental_level_of_education)
+
+
+# Print the table
+print(aggregated_table)
+
+```
+
+
+Including a table that shows the correlation between parental education level and students’ test scores is important for understanding the impact of family education background on student academic performance. This table reveals the differences in test scores between each level of education, indicating the power of the socioeconomic backgrounds have on individuals. Students with parents that achieved higher education are prone to be exposed to the abundant resources  at an earlier age. This information is beneficial in determining which group of students need additional support and guidance to ensure everyone has all the resources they need to thrive in school.
 
 ### Chart 1: Average Writing, Math, and Reading Scores for Genders
 
