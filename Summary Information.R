@@ -14,7 +14,7 @@ library(here)
 
 # Load data
 
-student_study_performance <- read.csv("Downloads/study_performance.csv")
+student_study_performance <- read.csv("exploratory-analysis-thitrang07/study_performance.csv")
 View(student_study_performance)
 
 
