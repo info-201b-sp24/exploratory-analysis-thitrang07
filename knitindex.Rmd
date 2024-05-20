@@ -1,0 +1,294 @@
+---
+title: "Exploratory Analysis"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+```
+
+### Project title
+Project Studious Student Performances
+
+### Authors
+```
+Thi Trang, Vanessa Kankam, Audrey Phan
+```
+
+### Date
+```
+May 17th, 2024
+```
+
+### Abstract
+```
+Our main question is how factors like gender, ethnicity, parental education, and whether they have reduced lunch influences student test scores and study habits. This question is important because understanding these impacts can guide more effective educational interventions. To address this question, we will analyze a dataset of 1,000 students from Kaggle, using statistical methods and machine learning models, as
+well as create charts to analyze data from our dataset.
+```
+### Keywords
+```
+Student study performance, socio-demographic factors, test scores, race and ethnicity.
+```
+
+### Introduction  
+```
+Academic performance serves as a way to help students develop life skills, advance career choices, and to build confidence. It is important as we have a learning level to meet but to do so we have different factors on meeting academic expectations. There are always more room to make more strategies to improve academic performance and reduce academic risks. Moreover, there has been studies how academic performance can be linked to physical fitness, with understanding the correlation between the two. Understanding the factors that influence academic performance is essential for educational research. Our project explores and highlights the relationship between various subjects including gender, sex, ethnicity, race, family background education, as well as if eating lunch with those who have standard or free and reduced lunch can be affected by student’s performance in school. It leads to questions such as does parental level education affect their student to learn better? Which race or ethnicity has lower and higher test scores? Does gender and sex play a role on who performs better? All these subjects will reflect the data in groups on how students perform in math, writing, and reading. Analyzing these student performance factors can help identify and improve education programs as well to have a greater impact on their success.
+```
+### Related Work  
+```
+The topic we chose was Student Study Performances. Related works we found with this topic is from Watermark Insights, called "You Say Tomato, I say Tomato: Are Student Performance and Student Learning Outcomes the Same Thing?" which explains the difference between student performances and learning outcomes. Performance outcomes are results an institution wants to see from students, while student learning outcomes are things like being able to communicate well, applying your learning to experiences, etc.. The second is a research article from Frontiers called "Student performance in online learning higher education: A preliminary research" which analyzes the impact of student performance in online learning experiences. This study includes different sections such as e-learning technology, student satisfaction, and student performance impact parts, which go in depth. Lastly, the last relevant work chosen was from the Wisconsin Department of Public Institution, which shows different levels of student performances. They created a standard setting which is linked on the website in order to gauge the academic standards. They separate performance levels into four categories: advanced, proficient, basic, and below basic. We chose this article especially because it is government officiated which shows the way some states have as their standard for gauging performance levels in students, which could potentially be helpful in our study later on when we look at student study performances.
+
+Sources:
+
+1. Prabowo, Hartiwi, et al. “Student Performance in Online Learning Higher Education: A Preliminary Research.” Frontiers, Frontiers, 22 Sept. 2022, www.frontiersin.org/articles/10.3389/feduc.2022.916721/full.
+
+2. Watermark Insights. “You Say Tomato, I Say Tomato: Are Student Performance and     Student Learning Outcomes the Same Thing?” Watermark Insights, 26 Feb. 2024, www.watermarkinsights.com/resources/blog/you-say-tomato-i-say-tomato-are-student-performance-and-student-learning-outcomes-the-same-thing.
+
+3. Wisconsin Department of Public Institution. “Student Performance Levels.” Wisconsin Department of Public Institution, dpi.wi.gov/sites/default/files/imce/assessment/pdf/Student_Performance_Levels.pdf. Accessed 2 May 2024.
+```
+
+### The Dataset
+```
+This dataset comes from Kaggle, a website where data scientists share work on data to build machine learning models. The dataset was collected by Bhavik Jikadara, a Data Scientist known for his proficiency to use Machine Learning, Natural Language Processing, and Deep Learning. There are 1,000 observations and 8 features in this dataset, including gender, race/ethnicity, parental level of education, lunch, test preparation course, scores in math, reading, and writing. The purpose behind this data was likely to analyze and understand how different factors can affect student performances, which can aid in educational planning and tailor the teaching style more appropriately to accommodate the needs of students.
+
+When analyzing this data, it’s crucial to maintain ethical standards, especially when the data might involve information about students that are under the age of 18; ensuring the anonymity and privacy of the students’ data is essential to prevent any potential misuse. Additionally, it’s important to consider whether the dataset fairly represents different populations or if there’s any bias in the way the data was collected.
+
+There are several limitations to this dataset which include its cope being too narrow (only a 1000 observations) to generalize across different educational systems or cultural contexts. Thus, there is a higher risk of bias information being involved in the absence of some factors. Second, the data collection methods aren’t transparent, so it is unknown where and when the data was being collected. These aspects are critical to consider, ensuring that all conclusions are liable and relevant to use.
+```
+
+### Implications
+```
+There are many significant factors that can get in the way of academic performance. One of the research questions we plan to answer, does parental level education affect their student to learn better? Parent education is an important index of social economic status, as it can predict children’s educational, cognitive outcomes. There has been a relation between poverty and low social economic status which can lead to negative child outcomes such as low IQ, more social problems. Having a lower socioeconomic status can give people the disadvantage. Students who live in poverty often have fewer resources either in school, at home, etc. Those with parent education can be linked directly with the child developing academic success and achievement attitudes. In general, social learning is shaped by observation and learning experiences. If a child is exposed to parents who modeled achievement behavior will often guide their children that achievement is valued.
+```
+
+### Limitations & Challenges
+```
+Student study performances is a broad topic, because there are many different ways a student can show their performances, many types of students, and study methods, all which can affect the data set and how to interpret and analyze it. The data set we chose has a lot of factors they put down, some which can be noted as a correlation, such as parental level of education and whether the students have free/reduced lunch. A challenge relating to this could be finding relationships between the sections in this dataset without assuming they cause the other, because correlation does not equal causation. Another limitation could be that the related works we may find probably come from a variety of sources, some which could be biased or skewed, so it will be important in our study to use accurate sources. Another challenge we may run into is comparing data between, for example, an area with a more prestigous education system versus a less one, and we will have to rule out these outliers when completing our study.
+```
+
+### Summary Information
+```
+Our analysis revealed that the students with lower test scores in math, english, and writing, were the gender 
+```
+```{r}
+# Load Packages 
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(here)
+
+
+# Load data
+
+student_study_performance <- read.csv("study_performance.csv")
+# Pull the gender of the student with the highest test scores
+gender_highest_scores <- student_study_performance %>%
+  filter(math_score == max(math_score)) %>%
+  filter(reading_score == max(reading_score)) %>%
+  filter(writing_score == max(writing_score)) %>%
+  pull(gender)
+print(gender_highest_scores)
+# Pull the gender of the student with the lowest test scores
+gender_lowest_scores <- student_study_performance %>%
+  filter(math_score == min(math_score)) %>%
+  filter(reading_score == min(reading_score)) %>%
+  filter(writing_score == min(writing_score)) %>%
+  pull(gender)
+print(gender_lowest_scores)
+# Pull the parental education level education of the student with the highest test scores
+parentlvl_highest_scores <- student_study_performance %>%
+  filter(math_score == max(math_score)) %>%
+  filter(reading_score == max(reading_score)) %>%
+  filter(writing_score == max(writing_score)) %>%
+  pull(parental_level_of_education)
+print(parentlvl_highest_scores)
+# Pull the parental education level of the student with the lowest test scores
+parentlvl_lowest_scores <- student_study_performance %>%
+  filter(math_score == min(math_score)) %>%
+  filter(reading_score == min(reading_score)) %>%
+  filter(writing_score == min(writing_score)) %>%
+  pull(parental_level_of_education)
+print(parentlvl_lowest_scores)
+# Pull the race ethnicity of the student with the highest test scores
+race_highest_scores <- student_study_performance %>%
+  filter(math_score == max(math_score)) %>%
+  filter(reading_score == max(reading_score)) %>%
+  filter(writing_score == max(writing_score)) %>%
+  pull(race_ethnicity)
+print(race_highest_scores)
+# Pull the race ethnicity of the student with the lowest test scores
+race_lowest_scores <- student_study_performance %>%
+  filter(math_score == min(math_score)) %>%
+  filter(reading_score == min(reading_score)) %>%
+  filter(writing_score == min(writing_score)) %>%
+  pull(race_ethnicity)
+print(race_lowest_scores)
+# Calcualte the average scores
+summary_avg_math_score <- round(mean(student_study_performance$math_score, na.rm = TRUE), 2)
+summary_avg_reading_score <- round(mean(student_study_performance$reading_score, na.rm = TRUE), 2)
+summary_avg_writing_score <- round(mean(student_study_performance$writing_score, na.rm = TRUE), 2)
+print(summary_avg_math_score)
+print(summary_avg_reading_score)
+print(summary_avg_writing_score)
+```
+```
+gender_lowest_score, had parents with 
+parentlvl_lowest_scores level of education, and were
+race_lowest_scores race. 
+
+On the opposite side, Our analysis revealed that the students with higher test scores in math, english, and writing, were the gender gender_highest_scores, had parents with  parentlvl_highest_scores level of education, and were  race_highest_scores race. 
+```
+
+### Table
+```
+Include a table of aggregate information
+```
+```{r}
+# Load packages
+library(dplyr)
+library(readxl)
+library(here)
+
+# Load Data
+student_study_performance <- read.csv("study_performance.csv")
+
+# Order of parental level of education
+education_levels <- c("some high school", "high school", "some college", 
+                      "associate's degree", "bachelor's degree", "master's degree")
+
+# Create an aggregated table
+aggregated_table <- student_study_performance %>%
+  group_by(parental_level_of_education) %>%
+  summarise(
+    Count = n(),
+    Avg_Math_Score = round(mean(math_score, na.rm = TRUE), 2),
+    Avg_Reading_Score = round(mean(reading_score, na.rm = TRUE), 2),
+    Avg_Writing_Score = round(mean(writing_score, na.rm = TRUE), 2),
+    Max_Math_Score = max(math_score, na.rm = TRUE),
+    Min_Math_Score = min(math_score, na.rm = TRUE),
+    Max_Reading_Score = max(reading_score, na.rm = TRUE),
+    Min_Reading_Score = min(reading_score, na.rm = TRUE),
+    Max_Writing_Score = max(writing_score, na.rm = TRUE),
+    Min_Writing_Score = min(writing_score, na.rm = TRUE),
+    Prop_Test_Prep_Completed = round(mean(test_preparation_course == "completed", na.rm = TRUE), 2)
+  ) %>%
+  arrange(parental_level_of_education)
+
+
+# Print the table
+print(aggregated_table)
+
+
+```
+```
+Including a table that shows the correlation between parental education level and students’ test scores is important for understanding the impact of family education background on student academic performance. This table reveals the differences in test scores between each level of education, indicating the power of the socioeconomic backgrounds have on individuals. Students with parents that achieved higher education are prone to be exposed to the abundant resources  at an earlier age. This information is beneficial in determining which group of students need additional support and guidance to ensure everyone has all the resources they need to thrive in school.
+```
+### Chart 1: Average Writing, Math, and Reading Scores for Genders
+
+```{r}
+
+# Load data
+student_study_performance <- read.csv("study_performance.csv")
+
+# Get average scores by gender
+avg_scores <- student_study_performance %>%
+  group_by(gender) %>%
+  summarise(
+    avg_math = mean(math_score, na.rm = TRUE),
+    avg_reading = mean(reading_score, na.rm = TRUE),
+    avg_writing = mean(writing_score, na.rm = TRUE)
+  )
+
+avg_scores_long <- avg_scores %>%
+  pivot_longer(cols = starts_with("avg"),
+               names_to = "subject",
+               values_to = "avg_score")
+
+# Make bar plot
+ggplot(data = avg_scores_long, aes(x = subject, y = avg_score, fill = gender)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  labs(
+    title = "Average Writing, Math, and Reading Test Scores by Gender",
+    x = "Subject",
+    y = "Average Score",
+    fill = "Gender"
+  ) +
+  scale_x_discrete(labels = c("avg_math_score" = "Math", 
+                              "avg_reading_score" = "Reading", 
+                              "avg_writing_score" = "Writing")) +
+  scale_fill_manual(values = c("male" = "blue", "female" = "pink")) +
+  theme_minimal()
+
+```
+```
+I chose this chart of the average writing, reading, and math scores of both genders side by side, which reveals that in reading and writing, female students had the higher average test scores, but for male students, their average math scores were the highest.
+```
+
+### Chart 2
+
+```{r}
+# Load the dataset
+student_study_performance <- read.csv("study_performance.csv")
+
+
+# Creating a box plot for score distributions by lunch type
+# Focus on readability and effective use of color
+box_plot <- ggplot(student_study_performance, aes(x = lunch, y = math_score, fill = lunch)) +
+  geom_boxplot(outlier.color = "red", outlier.shape = 8) +  # Highlight outliers in red
+  labs(
+    title = "Math Score Distribution by Lunch Type",
+    x = "Type of Lunch",
+    y = "Math Scores",
+    fill = "Lunch Type"
+  ) +
+  scale_fill_manual(values = c("standard" = "#3498db", "free/reduced" = "#e74c3c")) +  # Use manual colors for clarity
+  theme_minimal() +  # Minimalistic theme for clarity
+  theme(legend.position = "right",  # Ensure the legend does not run off the page
+        legend.title = element_text(face = "bold", size = 12),  # Enhance legend title readability
+        legend.text = element_text(size = 10))  # Set size for legend texts
+
+# Display the plot
+print(box_plot)
+
+```
+```
+This shows the reflection of the type of lunch status students have and performance of math scores. Those who have standard lunch performed better in math than those who have free/reduced.
+```
+
+### Chart 3
+
+```{r}
+student_study_performance <- read.csv("study_performance.csv")
+
+#Test preperation vs average test score 
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+# Calculate the average scores
+data <- student_study_performance  %>%
+  mutate(average_score = (math_score + reading_score + writing_score) / 3)
+
+
+
+# Create the histogram based on test preparation status
+ggplot(data, aes(x = average_score, fill = test_preparation_course)) +
+  geom_histogram(binwidth = 5, position = "dodge", alpha = 0.7,color = 'black') +
+  labs(title = "Average Test Scores Based on Test Preparation",
+       x = "Test Preparation",
+       y = "Average Score",
+       fill = "Test Preparation Performance") +
+  theme_minimal()
+
+
+```
+
+```
+This chart reveals the amount of students who have and have not completed test preparation, it reflects the average score of those did not complete test preparation had higher scores
+```
+
+
+
